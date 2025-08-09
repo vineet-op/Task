@@ -1,5 +1,7 @@
 'use client'
 
+
+
 export default function CaseStudies() {
     return (
         <div className="min-h-screen overflow-hidden bg-[#050B1F] flex items-center justify-center relative">
