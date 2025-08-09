@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Real — Next.js App (App Router) with Tailwind v4
+
+A simple landing-style site built with Next.js App Router, Tailwind CSS v4, Motion for animations, and TypeScript. The page composes modular sections: `Hero`, `Benefits`, `Case_Studies`, and `Footer`.
+
+### Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Runtime**: React 19
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4 with `@tailwindcss/postcss`
+- **Animations**: `motion` (`motion/react`)
+- **Linting**: ESLint (`next/core-web-vitals`, TypeScript)
+
+### Project Structure
+
+```
+real/
+  app/
+    components/
+      Benefits/Benefits.tsx
+      Case_Studies/Case_Studies.tsx
+      Footer/Footer.tsx
+      Hero/Hero.tsx
+    favicon.ico
+    globals.css
+    layout.tsx
+    page.tsx
+  public/
+    appointment-02.png, zap.png, notebook.png, redline1.png, ...
+  next.config.ts
+  tsconfig.json
+  eslint.config.mjs
+  postcss.config.mjs
+  package.json
+  bun.lock
+```
+
+### Features
+
+- **App Router** with a single page (`app/page.tsx`) composing multiple section components
+- **Geist font** via `next/font` configured in `app/layout.tsx`
+- **Tailwind v4** using the new `@theme inline` and CSS variables in `app/globals.css`
+- **Declarative animations** via `motion/react` for fade/slide/hover effects
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+ (LTS recommended)
+- Any package manager: npm, pnpm, yarn, or bun
+
+### Install
+
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn
+# or
+bun install
+```
+
+### Develop
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# or: pnpm dev | yarn dev | bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build & Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Implementation Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Styling
 
-## Deploy on Vercel
+- Tailwind v4 is enabled via `@import "tailwindcss";` in `app/globals.css` and `@tailwindcss/postcss` in `postcss.config.mjs`.
+- Color and font variables are defined in `:root` and surfaced into Tailwind with `@theme inline`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `Hero/Hero.tsx`: Intro/visual header section with SVG background effects.
+- `Benefits/Benefits.tsx`: Three-card benefits grid with Motion animations and images from `public/`.
+- `Case_Studies/Case_Studies.tsx`: Two-card case studies with animated headings and decorative underline image.
+- `Footer/Footer.tsx`: CTA footer with subtle entrance animations.
+
+### Configuration
+
+- `app/layout.tsx`: Sets up fonts and global styles and defines base `metadata`.
+- `next.config.ts`: Default config scaffold (no custom options set yet).
+- `tsconfig.json`: Strict TS, `moduleResolution: bundler`, and an `@/*` path alias to project root.
+- `eslint.config.mjs`: Uses `next/core-web-vitals` and TypeScript rules via Flat Config.
