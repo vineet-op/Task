@@ -28,9 +28,10 @@ const CaseStudies = () => {
             <motion.h1
                 className="font-sans font-light text-4xl mb-16 py-7"
                 initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{
-                    ease: "easeIn"
+                    ease: "easeIn",
                 }}
             >
                 Case Studies
@@ -43,9 +44,12 @@ const CaseStudies = () => {
                         key={index}
                         className="flex flex-col gap-6"
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.3, ease: "easeIn" }}
-
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.2 }}
+                        transition={{
+                            delay: index * 0.3,
+                            ease: "easeIn",
+                        }}
                     >
                         {/* Company Name */}
                         <h2 className="text-lg font-light">{data.company}</h2>

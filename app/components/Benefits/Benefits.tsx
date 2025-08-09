@@ -28,8 +28,8 @@ const Benefits = () => {
     return (
         <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             className='text-white w-screen h-screen bg-gray-950 flex justify-center items-center'
         >
@@ -40,8 +40,8 @@ const Benefits = () => {
                 {/* left side */}
                 <motion.div
                     initial={{ x: -50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
                     whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className='flex flex-col gap-3 mx-auto max-w-md'
                 >
@@ -53,8 +53,8 @@ const Benefits = () => {
                 {/* right side */}
                 <motion.div
                     initial={{ x: 50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
                     whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className='flex flex-col gap-12 px-10 '
                 >
@@ -62,15 +62,21 @@ const Benefits = () => {
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+                            viewport={{ once: false, amount: 0.2 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.6 + index * 0.2,
+                                staggerChildren: 0.1
+                            }}
                             className="flex items-center gap-2"
                         >
                             <motion.div
+                                initial={{ scale: 0.95 }}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 whileInView={{ scale: 1 }}
+                                viewport={{ once: false, amount: 0.2 }}
                             >
                                 <Image
                                     src={item.image}
